@@ -1,6 +1,9 @@
 import express from 'express';
 
-const router = new express.Router()
+const router = new express.Router();
+
+import { getBoroughs } from './database.js';
+
 
 /**
  * Déclaration des routes de l'app
@@ -16,8 +19,10 @@ router.get("/", getHome);
  * GET /
  * Page d'accueil
  */
-function getHome(req, res) {
-  res.render('index');
+async function getHome(req, res) {
+  const boroughs = await getBoroughs() ;
+
+  res.render('index', { boroughs });
 }
 
 // Exporte le routeur pour le fichier principal
