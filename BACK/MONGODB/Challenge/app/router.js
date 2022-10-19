@@ -1,4 +1,5 @@
-const express = require('express');
+import express from 'express';
+
 const router = new express.Router()
 
 /**
@@ -20,4 +21,5 @@ function getHome(req, res) {
 }
 
 // Exporte le routeur pour le fichier principal
-module.exports = router;
+
+export default router;
